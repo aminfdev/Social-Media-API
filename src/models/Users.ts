@@ -2,33 +2,35 @@
 
 import { Model, UUIDV4 } from "sequelize";
 
-interface UserAttributes {
+interface UsersAttributes {
   id: string;
   first_name: string;
   last_name: string;
-  username: string;
   email: string;
   password: string;
 }
 
 module.exports = (sequelize: any, DataTypes: any) => {
-  class Users extends Model<UserAttributes> implements UserAttributes {
+  class Users extends Model<UsersAttributes> implements UsersAttributes {
     id!: string;
     first_name!: string;
     last_name!: string;
-    username!: string;
     email!: string;
     password!: string;
 
-
-    // static associate(models: any) {
-    //   Users.belongsToMany(models.Project, {
-    //     through: "ProjectAssignments",
-    //   });
-    // }
-
-
+    static associate(models: any) {
+      Users.hasMany(models.Posts, {
+        onDelete: "cascade",
+      });
+      Users.hasMany(models.Likes, {
+        onDelete: "cascade",
+      });
+      Users.hasMany(models.Comments, {
+        onDelete: "cascade",
+      });
+    }
   }
+
   Users.init(
     {
       id: {
@@ -44,11 +46,6 @@ module.exports = (sequelize: any, DataTypes: any) => {
       last_name: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
       },
       email: {
         type: DataTypes.STRING,

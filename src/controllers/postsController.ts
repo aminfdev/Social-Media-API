@@ -13,13 +13,39 @@ export async function getPosts(req: Request, res: Response) {
 }
 
 export async function getPostById(req: Request, res: Response) {
-  const postId = req.params.postId;
+  const { postId } = req.params;
   try {
     const post = await db.Posts.findByPk(postId, { include: [db.Likes] });
     if (!post) {
       return res.status(404).json({ message: "Post not found." });
     } else {
       return res.status(200).json(post);
+    }
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "Something happened wrong. Try again." });
+  }
+}
+
+export async function getPostsByUserId(req: Request, res: Response) {
+  const { userId } = req.params;
+  try {
+    const user = await db.Users.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    } else {
+      const posts = await db.Posts.findAll({
+        where: { UserId: userId },
+        include: [db.Likes],
+      });
+      if (!posts) {
+        return res
+          .status(404)
+          .json({ message: "User not posted anything yet." });
+      } else {
+        return res.status(200).json(posts);
+      }
     }
   } catch (error) {
     return res
@@ -45,7 +71,7 @@ export async function updatePost(req: Request, res: Response) {
   const newTitle = req.body.title;
   const newBody = req.body.body;
   const userId = req.user.id;
-  const postId = req.params.postId;
+  const { postId } = req.params;
   try {
     const post = await db.Posts.findByPk(postId);
     if (!post) {
@@ -74,7 +100,7 @@ export async function updatePost(req: Request, res: Response) {
 
 export async function deletePost(req: Request, res: Response) {
   const userId = req.user.id;
-  const postId = req.params.postId;
+  const { postId } = req.params;
   try {
     const post = await db.Posts.findByPk(postId);
     if (!post) {

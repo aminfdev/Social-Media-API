@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import db from "../models";
 
 export async function like(req: Request, res: Response) {
-  const { postId } = req.body;
+  const { postId } = req.params;
   const userId = req.user.id;
   try {
     const post = await db.Posts.findByPk(postId);

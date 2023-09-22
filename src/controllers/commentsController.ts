@@ -4,8 +4,13 @@ import db from "../models";
 export async function getComments(req: Request, res: Response) {
   const { postId } = req.params;
   try {
-    const comments = await db.Comments.findAll({ where: { PostId: postId } });
-    return res.status(200).json(comments);
+    const post = await db.Posts.findByPk(postId);
+    if (!post) {
+      return res.status(404).json({ message: "Post not found." });
+    } else {
+      const comments = await db.Comments.findAll({ where: { PostId: postId } });
+      return res.status(200).json(comments);
+    }
   } catch (error) {
     return res
       .status(500)

@@ -56,13 +56,13 @@ export async function updatePost(req: Request, res: Response) {
           message: "Access denied. Only author of this post can update it.",
         });
       } else {
-        const response = await db.Posts.update(
+        await db.Posts.update(
           { title: newTitle, body: newBody },
           { where: { id: postId, UserId: userId } }
         );
         return res
           .status(200)
-          .json({ message: "Successfuly updated the post.", status: response });
+          .json({ message: "Successfuly updated the post." });
       }
     }
   } catch (error) {
@@ -85,12 +85,12 @@ export async function deletePost(req: Request, res: Response) {
           message: "Access denied. Only author of this post can delete it.",
         });
       } else {
-        const response = await db.Posts.destroy({
+        await db.Posts.destroy({
           where: { id: postId, UserId: userId },
         });
         return res
           .status(200)
-          .json({ message: "Successfuly deleted the post.", status: response });
+          .json({ message: "Successfuly deleted the post." });
       }
     }
   } catch (error) {

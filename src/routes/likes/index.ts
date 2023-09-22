@@ -4,6 +4,6 @@ import express from "express";
 
 const router = express.Router();
 
-router.post("/", authenticate, like);
+router.post("/by-post-id/:postId", authenticate, like);
 
 export { router as likesRouter };

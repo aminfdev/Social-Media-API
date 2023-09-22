@@ -3,7 +3,7 @@ import db from "../models";
 
 export async function getPosts(req: Request, res: Response) {
   try {
-    const posts = await db.Posts.findAll();
+    const posts = await db.Posts.findAll({ include: [db.Likes] });
     return res.status(200).json(posts);
   } catch (error) {
     return res
@@ -15,7 +15,7 @@ export async function getPosts(req: Request, res: Response) {
 export async function getPostById(req: Request, res: Response) {
   const postId = req.params.postId;
   try {
-    const post = await db.Posts.findByPk(postId);
+    const post = await db.Posts.findByPk(postId, { include: [db.Likes] });
     if (!post) {
       return res.status(404).json({ message: "Post not found." });
     } else {

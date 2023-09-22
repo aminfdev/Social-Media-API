@@ -1,7 +1,11 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-export function authMiddleware(req: Request, res: Response, next: NextFunction) {
+export function authenticate(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
   const accessToken = req.header("Access-Token");
   if (!accessToken) {
     return res.status(401).json({ message: "Access denied." });
@@ -11,6 +15,7 @@ export function authMiddleware(req: Request, res: Response, next: NextFunction) 
         accessToken,
         process.env.JWT_SECRET as string
       );
+      req.user = validToken;
       if (validToken) {
         return next();
       }

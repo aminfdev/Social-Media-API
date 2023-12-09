@@ -2,6 +2,7 @@
 
 This is a simple RESTful API for a social media platform. It allows users to perform various actions, such as creating posts, updating and deleting posts, and liking and commenting on other users' posts.
 
+
 #### Implemented Features
 
 * Registering into the system
@@ -10,6 +11,7 @@ This is a simple RESTful API for a social media platform. It allows users to per
 * Create, Read, Update, and Delete the Posts
 * Each post can be updated and deleted only by its author
 * Liking and Commenting on other users posts
+
 
 #### Technologies used to develop
 
@@ -25,6 +27,7 @@ This is a simple RESTful API for a social media platform. It allows users to per
 * ts-node
 * uuid
 
+
 ### Prerequisites
 
 Before you begin, ensure you have the following installed:
@@ -32,6 +35,7 @@ Before you begin, ensure you have the following installed:
 - Node.js
 - MySQL
 - TypeScript
+
 
 ### Installation
 
@@ -66,9 +70,11 @@ Create a .env file in the root directory with the following content:
    npm start
    ```
 
+
 ### Usage
 
-Once the application is running, you can access the library interface in your web browser.
+To use the API, you can make HTTP requests to the various endpoints.
+
 
 ### API Endpoints
 
@@ -85,5 +91,6 @@ Once the application is running, you can access the library interface in your we
  * GET /api/comments/by-post-id/:postId: Get comments of a specific post
  * POST /api/comments/by-post-id/:postId: Add a comment to a post.
  * DELETE /api/comments/:postId: Delete a comment.
+
 
 For more details on request and response formats, refer to the source code and documentation.

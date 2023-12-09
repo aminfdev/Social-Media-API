@@ -1,6 +1,6 @@
 ### Social Media API 
 
-This is a simple RESTful API for a social media platform. It allows users to perform various actions, such as creating posts, update and deleting post, and liking and commenting on other users posts.
+This is a simple RESTful API for a social media platform. It allows users to perform various actions, such as creating posts, updating and deleting posts, and liking and commenting on other users' posts.
 
 #### Implemented Features
 
@@ -41,7 +41,7 @@ Before you begin, ensure you have the following installed:
    git clone https://github.com/aminfdev/social-media-api.git
    ```
 
-2. Install dependenciesr:
+2. Install dependencies:
 
    ```bash
    cd social-media-api
@@ -72,18 +72,18 @@ Once the application is running, you can access the library interface in your we
 
 ### API Endpoints
 
- . POST /api/auth/register: Register a new user.
- . POST /api/auth/login: Log in a user and receive an authentication token.
- . GET /api/users/:userId: Get a specific user's profile
- . GET /api/posts: Get a list of all posts.
- . GET /api/posts/:postId: Get details of a specific post.
- . GET /api/posts/by-user-id/:userId: Get a specific user's posts.
- . POST /api/posts: Create a new post.
- . PUT /api/posts/:postId: Update a post.
- . DELETE /api/posts/:postId: Delete a post.
- . POST /api/likes/by-post-id/:postId: Like a post.
- . GET /api/comments/by-post-id/:postId: Get comments of a specific post
- . POST /api/comments/by-post-id/:postId: Add a comment to a post.
- . DELETE /api/comments/:postId: Delete a comment.
+ * POST /api/auth/register: Register a new user.
+ * POST /api/auth/login: Log in a user and receive an authentication token.
+ * GET /api/users/:userId: Get a specific user's profile
+ * GET /api/posts: Get a list of all posts.
+ * GET /api/posts/:postId: Get details of a specific post.
+ * GET /api/posts/by-user-id/:userId: Get a specific user's posts.
+ * POST /api/posts: Create a new post.
+ * PUT /api/posts/:postId: Update a post.
+ * DELETE /api/posts/:postId: Delete a post.
+ * POST /api/likes/by-post-id/:postId: Like a post.
+ * GET /api/comments/by-post-id/:postId: Get comments of a specific post
+ * POST /api/comments/by-post-id/:postId: Add a comment to a post.
+ * DELETE /api/comments/:postId: Delete a comment.
 
 For more details on request and response formats, refer to the source code and documentation.

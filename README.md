@@ -54,7 +54,7 @@ Before you begin, ensure you have the following installed:
 
 3. Set up environment variables:
 
-Create a .env file in the root directory with the following content:
+   Create a .env file in the root directory with the following content:
  
    ```bash
    DB_USERNAME=your_username_to_access_database
@@ -93,4 +93,4 @@ To use the API, you can make HTTP requests to the various endpoints.
  * DELETE /api/comments/:postId: Delete a comment.
 
 
-For more details on request and response formats, refer to the source code and documentation.
+For more details on request and response formats, refer to the source code.

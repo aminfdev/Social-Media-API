@@ -60,7 +60,7 @@ Before you begin, ensure you have the following installed:
    DB_USERNAME=your_username_to_access_database
    DB_PASSWORD=your_password_to_access_database
    DB_NAME=social_media_db
-   JWT_SECRET=wf9y58wh4w45x97w4h5ohw4s
+   JWT_SECRET=your_secret_key_for_tokenizing
    PORT=3000
    ```
 
@@ -73,7 +73,7 @@ Before you begin, ensure you have the following installed:
 
 ### Usage
 
-To use the API, you can make HTTP requests to the various endpoints.
+To use the API, you can make HTTP requests to the various endpoints at http://localhost:3000.
 
 
 ### API Endpoints

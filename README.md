@@ -78,8 +78,8 @@ To use the API, you can make HTTP requests to the various endpoints at http://lo
 
 ### API Endpoints
 
- * POST /api/auth/register: Register a new user.
- * POST /api/auth/login: Log in a user and receive an authentication token.
+ * POST /api/auth/register: Register as a new user.
+ * POST /api/auth/login: Log in as a user and receive an authentication token.
  * GET /api/users/:userId: Get a specific user's profile
  * GET /api/posts: Get a list of all posts.
  * GET /api/posts/:postId: Get details of a specific post.
@@ -90,7 +90,7 @@ To use the API, you can make HTTP requests to the various endpoints at http://lo
  * POST /api/likes/by-post-id/:postId: Like a post.
  * GET /api/comments/by-post-id/:postId: Get comments of a specific post
  * POST /api/comments/by-post-id/:postId: Add a comment to a post.
- * DELETE /api/comments/:postId: Delete a comment.
+ * DELETE /api/comments/:commentId: Delete a comment.
 
 
-For more details on request and response formats, refer to the source code.
+Refer to the source code for more details on request and response formats.
